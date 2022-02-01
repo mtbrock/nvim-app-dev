@@ -4,6 +4,9 @@ local Buffer = {
 
 function Buffer:new(o)
     o = o or {}
+    if not o.id then
+        o.id = vim.api.nvim_eval('bufnr("%")')
+    end
     setmetatable(o, self)
     self.__index = self
     return o

@@ -18,6 +18,9 @@ local Window = {
 
 function Window:new(o)
     o = o or {}
+    if not o.id then
+        o.id = vim.api.nvim_eval('win_getid()')
+    end
     setmetatable(o, self)
     self.__index = self
     return o
@@ -42,10 +45,15 @@ function Window.get_default_float_config(...)
 end
 
 function Window.open(buffer_id, enter, config)
-    config = Window.get_default_float_config(config)
+    config = config or {}
     return Window:new({
         id = vim.api.nvim_open_win(buffer_id, enter, config)
     })
+end
+
+function Window.open_floating(buffer_id, enter, config)
+    config = Window.get_default_float_config(config)
+    return Window.open(buffer_id, enter, config)
 end
 
 function Window:conf(key)

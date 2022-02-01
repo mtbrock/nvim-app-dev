@@ -46,6 +46,9 @@ local window = center_window(Window.open_floating(buffer_id, true, config))
 ```
 
 ### buffer
+This module provides a lua class for constructing buffer objects. The `Buffer` class wraps every
+`nvim_buf_*` function.
+
 ```lua
 local Buffer = require('app-dev.buffer')
 

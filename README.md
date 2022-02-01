@@ -1,4 +1,5 @@
 # nvim-app-dev
+A library for creating interactive neovim apps with Lua.
 
 ## Description
 This library consists of a handful of modules that are mainly intended for use by neovim plugin
@@ -8,7 +9,7 @@ event listeners.
 
 ## Modules
 ### window
-This module provides a lua class for constructing window objects. The `Window` class wraps every
+This module provides a Lua class for constructing window objects. The `Window` class wraps every
 `nvim_win_*` function.
 
 ```lua
@@ -48,7 +49,7 @@ local window = center_window(Window.open_floating(buffer_id, true, config))
 ```
 
 ### buffer
-This module provides a lua class for constructing buffer objects. The `Buffer` class wraps every
+This module provides a Lua class for constructing buffer objects. The `Buffer` class wraps every
 `nvim_buf_*` function.
 
 ```lua
@@ -70,7 +71,7 @@ buffer:set_option('modifiable', false)
 ```
 
 ### events.events
-Register lua function callbacks for neovim autocmd events.
+Register Lua function callbacks for neovim autocmd events.
 
 **Events:add_listener(context)** - Add an event listener.
 
@@ -103,7 +104,7 @@ events:subscribe()
 ```
 
 ### events.keymaps
-Register lua function callbacks (or standard map strings) for key maps.
+Register Lua function callbacks (or standard map strings) for key maps.
 
 **Keymaps:add_listener(context)** - Add a keymap listener.
 
@@ -132,9 +133,9 @@ keymaps:subscribe()
 ```
 
 ## Motivation
-There are many possible approaches to making lua apps but it can be difficult to choose
-the right approach and things can quickly get messy with a mixture of lua and vimscript.
+There are many possible approaches to making Lua apps but it can be difficult to choose
+the right approach and things can quickly get messy with a mixture of Lua and vimscript.
 There are many examples of neovim apps that offer many different solutions but most are tailored
 to a specific plugin implementation or hack together the UI in a way that is difficult to follow.
 This library intends to provide a simple way to implement various common UI funcionalities and
-establish a standard for creating a UI in neovim with lua.
+establish a standard for creating a UI in neovim with Lua.

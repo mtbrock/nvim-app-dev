@@ -2,7 +2,9 @@
 
 ## Description
 This library consists of a handful of modules that are mainly intended for use by neovim plugin
-developers but may also be useful to users as well.
+developers but may also be useful to users as well. The modules are mostly centered around
+implementing common UI functionality such as buffer/window creation/manipulation and autocmd/keymap
+event listeners.
 
 ## Modules
 ### window

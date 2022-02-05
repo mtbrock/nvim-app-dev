@@ -36,7 +36,8 @@ local function on_enter()
     render()
 end
 
--- Callback for WinClosed event.
+-- Callback for WinClosed event. You should unsubscribe when done,
+-- especially if you have non-buffer-local event listeners.
 local function on_close()
     events:unsubscribe()
     keymaps:unsubscribe()

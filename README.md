@@ -88,7 +88,9 @@ Register Lua function callbacks for neovim autocmd events.
 `augroup` that contains an `autocmd` for each listener defined.
 
 **Events:unsubscribe** - Stop listening to events. This clears the `augroup` created in
-`subscribe`.
+`subscribe`. You should always call `unsubscribe` when you're done listening to events,
+especially if you have defined non-buffer-local event listeners. The `WinClosed` event
+is a good place to call `unsubscribe`.
 
 ```lua
 local Events = require('app-dev.events.events')
@@ -96,7 +98,7 @@ local Events = require('app-dev.events.events')
 -- group_name is required.
 local events = Events:new({ group_name })
 events:add_listener({
-    event_name = 'WinLeave',
+    event_name = 'WinClose',
     callback = function() events:unsubscribe() end,
     buffer_id = vim.api.nvim_eval('bufnr("%")'),
 })

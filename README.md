@@ -3,7 +3,7 @@ A library for creating interactive neovim apps with Lua.
 
 ## Description
 This library consists of a handful of modules that are mainly intended for use by neovim plugin
-developers but may also be useful to users as well. The modules are mostly centered around
+developers but may also be useful to users. The modules are mostly centered around
 implementing common UI functionality such as buffer/window creation/manipulation and autocmd/keymap
 event listeners.
 
@@ -133,9 +133,6 @@ keymaps:subscribe()
 ```
 
 ## Motivation
-There are many possible approaches to making Lua apps but it can be difficult to choose
-the right approach and things can quickly get messy with a mixture of Lua and vimscript.
-There are many examples of neovim apps that offer many different solutions but most are tailored
-to a specific plugin implementation or hack together the UI in a way that is difficult to follow.
-This library intends to provide a simple way to implement various common UI funcionalities and
-establish a standard for creating a UI in neovim with Lua.
+I wanted to make a neovim plugin with lua that consists of a floating
+window with some maps and event listeners. I wasn't satisfied with other
+examples I've seen and this is my solution.
